@@ -1,0 +1,40 @@
+.chapter-banner {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: rgba(15, 23, 42, 0.97);
+  color: #f8fafc;
+  cursor: pointer;
+  text-align: center;
+  padding: 2rem;
+}
+
+.chapter-banner__title {
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.chapter-banner__subtitle {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.chapter-banner__timeskip {
+  font-size: 1rem;
+  color: #cbd5e1;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.chapter-banner__hint {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #64748b;
+}

@@ -1,0 +1,67 @@
+.game {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.game__scene-area {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Затемняет и блокирует клики по сцене, пока открыт Журнал/Карта — те сами
+   занимают только центральную часть экрана (inset: 10% 15%), без этого фон по
+   краям оставался бы видимым и кликабельным. z-index между сценой и самой
+   панелью (z-index: 10 у .journal/.world-map) — панель остаётся не затемнена. */
+.game__panel-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.game__ui {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: #0f172a;
+  border-top: 1px solid #1e293b;
+}
+
+.game__ui-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.game__ui-button {
+  background: #1e293b;
+  border: 1px solid #475569;
+  color: #f8fafc;
+  border-radius: 4px;
+  padding: 0.375rem 0.75rem;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.game__ui-button-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  object-fit: contain;
+}
+
+.game__ui-button:hover:not(:disabled) {
+  background: #334155;
+}
+
+.game__ui-button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}

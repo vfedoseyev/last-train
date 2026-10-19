@@ -1,0 +1,52 @@
+.epilogue {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 2rem;
+  background: #0f172a;
+  color: #f8fafc;
+  text-align: center;
+}
+
+.epilogue__text {
+  font-size: 1.1rem;
+  max-width: 32rem;
+  color: #cbd5e1;
+}
+
+.epilogue__quote {
+  font-size: 1.2rem;
+  font-style: italic;
+  max-width: 32rem;
+  color: #f8fafc;
+}
+
+.epilogue__ending-title {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #93c5fd;
+}
+
+.epilogue__ending-text {
+  max-width: 32rem;
+  color: #cbd5e1;
+}
+
+.epilogue__button {
+  margin-top: 1.5rem;
+  background: #1e293b;
+  border: 1px solid #475569;
+  color: #f8fafc;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+}
+
+.epilogue__button:hover {
+  background: #334155;
+}

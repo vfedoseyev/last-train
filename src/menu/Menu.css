@@ -1,0 +1,91 @@
+.menu {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  padding: 4rem 4rem 4rem 6vw;
+  box-sizing: border-box;
+  /* Весь background (включая градиент) — инлайн-стилем в MainMenu.tsx, одним
+     значением: инлайн background-image полностью перекрывает этот отсюда, а не
+     складывается с ним, так что разносить градиент и картинку по разным местам
+     нельзя. Путь к картинке должен учитывать Vite base (см. WorldMap.css). */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #f8fafc;
+}
+
+.menu__title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.menu__title::after {
+  content: "";
+  display: block;
+  width: 220px;
+  height: 1px;
+  margin-top: 1rem;
+  background: linear-gradient(90deg, rgba(250, 204, 21, 0.6), transparent);
+}
+
+.menu__tagline {
+  font-size: 1rem;
+  font-style: italic;
+  color: #cbd5e1;
+  opacity: 0.85;
+  margin: 1.1rem 0 2rem;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+.menu__button {
+  min-width: 260px;
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(250, 204, 21, 0.35);
+  color: #f8fafc;
+  border-radius: 4px;
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.menu__button:hover:not(:disabled) {
+  background: rgba(250, 204, 21, 0.12);
+  border-color: rgba(250, 204, 21, 0.8);
+}
+
+.menu__button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.menu__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 2rem;
+  min-width: 280px;
+}
+
+.menu__row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.menu__row input[type="range"] {
+  accent-color: #facc15;
+}

@@ -1,0 +1,35 @@
+.scene-transition-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  background: #000;
+  /* auto, не none: пока идёт переход, оверлей должен физически перехватывать
+     клики по сцене под собой, а не только визуально её прикрывать. */
+  pointer-events: auto;
+}
+
+.scene-transition-overlay--out {
+  animation: scene-transition-fade-out var(--scene-transition-ms, 250ms) ease forwards;
+}
+
+.scene-transition-overlay--in {
+  animation: scene-transition-fade-in var(--scene-transition-ms, 250ms) ease forwards;
+}
+
+@keyframes scene-transition-fade-out {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scene-transition-fade-in {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

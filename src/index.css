@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+/* rem-единицы во всём приложении завязаны на font-size корня — поэтому
+   переключатель размера текста меняет именно его, а не какой-то обёртки. */
+:root.text-size-large {
+  font-size: 18px;
+}

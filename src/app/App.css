@@ -1,0 +1,20 @@
+/* Переход "Новая игра" (меню -> вступление) — тот же приём затухания/осветления,
+   что и смена сцен (GameContext.tsx) и слайды вступления (Intro.tsx), только на
+   уровне экранов приложения (меню/вступление/игра), а не GameState — здесь нет
+   CHANGE_SCENE, который можно было бы перехватить, поэтому локальная фаза в
+   App.tsx. Keyframes переиспользуются из scenes/SceneTransitionOverlay.css. */
+.app__transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #000;
+  pointer-events: auto;
+}
+
+.app__transition-overlay--out {
+  animation: scene-transition-fade-out var(--scene-transition-ms, 250ms) ease forwards;
+}
+
+.app__transition-overlay--in {
+  animation: scene-transition-fade-in var(--scene-transition-ms, 250ms) ease forwards;
+}

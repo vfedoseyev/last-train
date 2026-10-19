@@ -1,0 +1,94 @@
+.hint-toast {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  max-width: min(420px, 80%);
+  padding: 1.1rem 1.5rem;
+  border-radius: 22px;
+  background: rgba(15, 23, 42, 0.94);
+  border: 1px solid rgba(250, 204, 21, 0.45);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 40px rgba(250, 204, 21, 0.08);
+  color: #f8fafc;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Хвостик "мыслительного пузыря" — два убывающих кружка снизу по центру. */
+.hint-toast::after,
+.hint-toast::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.94);
+  border: 1px solid rgba(250, 204, 21, 0.45);
+  transform: translateX(-50%);
+}
+
+.hint-toast::after {
+  bottom: -20px;
+  width: 14px;
+  height: 14px;
+}
+
+.hint-toast::before {
+  bottom: -32px;
+  width: 8px;
+  height: 8px;
+}
+
+.hint-toast__icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.hint-toast__text {
+  line-height: 1.45;
+  font-size: 0.95rem;
+}
+
+.hint-toast--in {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.85);
+  animation: hint-toast-in ease forwards;
+  animation-duration: 300ms;
+}
+
+.hint-toast--visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.hint-toast--out {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  animation: hint-toast-out ease forwards;
+  animation-duration: 300ms;
+}
+
+@keyframes hint-toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes hint-toast-out {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+}

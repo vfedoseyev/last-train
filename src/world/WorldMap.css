@@ -1,0 +1,130 @@
+.world-map {
+  position: absolute;
+  inset: 10% 15%;
+  /* Фон задаётся инлайн-стилем в WorldMap.tsx (через asset()), не здесь — путь
+     должен учитывать Vite base (GitHub Pages отдаёт с /<репозиторий>/, а не
+     с корня домена), а CSS url() не может звать JS-функцию. */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.world-map__header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #334155;
+  padding: 0.75rem 1rem;
+}
+
+.world-map__title {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.world-map__close {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 0.5rem;
+}
+
+.world-map__surface {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Метки поверх карты — без спрайтов конкретных зданий (см. locations.ts), просто
+   точка + подпись, с подсветкой при наведении (тот же язык, что и hotspot
+   на сценах, см. Scene.css .hotspot--available:hover). */
+.world-map__pin {
+  position: absolute;
+  z-index: 1;
+  transform: translate(-50%, -100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Карта в покое не затемнена — тёмная подложка и подсветка появляются только
+   при наведении на конкретную метку (см. WorldMap.tsx hoveredSceneId), тот же
+   приём, что и спотлайт хотспота во время диалога (Scene.css). */
+.world-map__dim-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.75);
+  pointer-events: none;
+}
+
+.world-map__pin-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(250, 204, 21, 0.9);
+  box-shadow: 0 0 8px 2px rgba(250, 204, 21, 0.5);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.world-map__pin-label {
+  font-size: 0.8rem;
+  white-space: nowrap;
+  color: #f8fafc;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(250, 204, 21, 0.35);
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+}
+
+.world-map__pin--spotlight {
+  z-index: 6;
+}
+
+.world-map__pin--spotlight .world-map__pin-dot {
+  transform: scale(1.4);
+  box-shadow: 0 0 16px 6px rgba(250, 204, 21, 0.85);
+}
+
+.world-map__pin--spotlight .world-map__pin-label {
+  border-color: rgba(250, 204, 21, 0.9);
+  background: rgba(15, 23, 42, 0.92);
+}
+
+.world-map__pin--here .world-map__pin-dot {
+  background: #93c5fd;
+  box-shadow: 0 0 0 4px rgba(147, 197, 253, 0.35), 0 0 10px 3px rgba(147, 197, 253, 0.6);
+}
+
+.world-map__pin--here .world-map__pin-label {
+  border-color: rgba(147, 197, 253, 0.7);
+  cursor: default;
+}
+
+.world-map__pin--locked .world-map__pin-dot {
+  background: #64748b;
+  box-shadow: none;
+}
+
+.world-map__pin--locked .world-map__pin-label {
+  color: #94a3b8;
+  border-color: rgba(100, 116, 139, 0.4);
+}
+
+.world-map__pin--locked {
+  cursor: not-allowed;
+}
